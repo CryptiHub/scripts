@@ -2,6 +2,7 @@ local tree = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://api
 for _, scrip in ipairs(tree.tree) do
     if scrip.type == "blob" and scrip.path ~= "Loader.lua" and string.find(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name:lower(), string.split(scrip.path:lower(), ".lua")[1]) then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/CryptiHub/scripts/main/"..scrip.path))()
+        break
     else
         print("game not supported")
     end
